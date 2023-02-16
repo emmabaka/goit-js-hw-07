@@ -30,6 +30,12 @@ function onImgClick(e) {
     return;
   }
 
+  function escClose(e) {
+    if (e.code === "Escape") {
+      instance.close();
+    }
+  }
+
   const instance = basicLightbox.create(
     `
     <img src="${e.target.dataset.source}" width="800" height="600">
@@ -43,12 +49,6 @@ function onImgClick(e) {
       },
     }
   );
-
-  function escClose(e) {
-    if (e.code === "Escape") {
-      instance.close();
-    }
-  }
 
   instance.show();
 }
