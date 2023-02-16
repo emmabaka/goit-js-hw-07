@@ -20,8 +20,6 @@ const galleryMarkup = galleryItems
   )
   .join("");
 
-console.log(galleryMarkup);
-
 gallery.insertAdjacentHTML("afterbegin", galleryMarkup);
 
 gallery.addEventListener("click", onImgClick);
@@ -31,7 +29,7 @@ function onImgClick(e) {
   if (e.target.nodeName !== "IMG") {
     return;
   }
-  console.log(e.target.nodeName);
+
   const instance = basicLightbox.create(
     `
     <img src="${e.target.dataset.source}" width="800" height="600">
@@ -46,11 +44,12 @@ function onImgClick(e) {
     }
   );
 
+  function escClose(e) {
+    if (e.code === "Escape") {
+      instance.close();
+    }
+  }
+
   instance.show();
 }
 
-function escClose() {
-  if (e.code === "Escape") {
-    instance.close();
-  }
-}
