@@ -52,4 +52,3 @@ function onImgClick(e) {
 
   instance.show();
 }
-
